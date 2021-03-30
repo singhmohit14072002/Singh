@@ -11,15 +11,15 @@ int reverse(int n){
     return ans;
 }
 
-int addBinary(int a, int b){
+int addBinary(int a, int c){
     int ans = 0;
     int prevCarry = 0;
-    while(a>0 && b>0){
-        if(a%2 == 0 && b%2 == 0){
+    while(a>0 && c>0){
+        if(a%2 == 0 && c%2 == 0){
             ans = ans*10 + prevCarry;
             prevCarry = 0;
         }
-        else if((a%2 == 0 && b%2 == 1) || (a%2 == 1 % b%2 == 0)){
+        else if((a%2 == 0 && c%2 == 1) || (a%2 == 1 % c%2 == 0)){
             if(prevCarry == 1){
                 ans = ans*10 + 0;
                 prevCarry = 1;
@@ -35,7 +35,7 @@ int addBinary(int a, int b){
             prevCarry = 1;
         }
         a/=10;
-        b/=10;
+        c/=10;
     }
 
     while(a>0){
@@ -66,9 +66,9 @@ int addBinary(int a, int b){
 
     }
 
-     while(b>0){
+     while(c>0){
         if(prevCarry == 1){
-            if(b%2 == 1){
+            if(c%2 == 1){
                 ans = ans*10 + 0;
                 prevCarry = 1;
             }
@@ -78,9 +78,9 @@ int addBinary(int a, int b){
             }
         }
         else{
-            ans = ans*10 + (b%2);
+            ans = ans*10 + (c%2);
         }
-        b/=10;
+        c/=10;
     }
     if(prevCarry == 1){
         ans = ans*10 + 1;
@@ -92,9 +92,9 @@ int addBinary(int a, int b){
 
 int32_t main(){
 
-int a,b;
-cin >> a >> b;
+int a,c;
+cin >> a >> c;
 
-cout << addBinary(a,b) <<endl;
+cout << addBinary(a,c) <<endl;
 
 }
